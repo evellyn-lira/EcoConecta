@@ -11,6 +11,7 @@ O **EcoConecta - Do Campo á Mesa** é uma plataforma web desenvolvida com o pro
 - Luigi Gomes
 - Luis Gustavo Cardoso
 - Samuel Cardoso 
+- João Henrique Gomes
 
 ## Orientador
 
