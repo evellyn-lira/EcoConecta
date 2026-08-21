@@ -15,7 +15,7 @@ O **EcoConecta - Do Campo á Mesa** é uma plataforma web desenvolvida com o pro
 
 ## Orientador
 
-Prof. Dr. Hudson Neves
+Prof. Hudson Neves
 
 Responsável pela orientação acadêmica e acompanhamento do desenvolvimento do projeto.
 
