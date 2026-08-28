@@ -1,5 +1,5 @@
-# EcoConecta
-O **EcoConecta - Do Campo á Mesa** é uma plataforma web desenvolvida com o propósito de aproximar pequenos produtores rurais e agricultores familiares dos consumidores finais, promovendo uma **relação mais direta, transparente e sustentável.** A proposta surge da necessidade de **fortalecer a economia local, valorizar a produção agrícola regional e facilitar o acesso da população a alimento frescos, orgânicos e de qualidade**. Através de uma interface intuitiva e acessível, os consumidores podem **conhecer a história** dos produtores, **visualizar a origem** dos produtos, **realizar compras** de forma prática e **acompanhar indicadores** de impacto ambiental relacionados ao consumo local. 
+# Code Horizon
+O **Code Horizon - Do Campo á Mesa** é uma plataforma web desenvolvida com o propósito de aproximar pequenos produtores rurais e agricultores familiares dos consumidores finais, promovendo uma **relação mais direta, transparente e sustentável.** A proposta surge da necessidade de **fortalecer a economia local, valorizar a produção agrícola regional e facilitar o acesso da população a alimento frescos, orgânicos e de qualidade**. Através de uma interface intuitiva e acessível, os consumidores podem **conhecer a história** dos produtores, **visualizar a origem** dos produtos, **realizar compras** de forma prática e **acompanhar indicadores** de impacto ambiental relacionados ao consumo local. 
 
 ## Autores
 
