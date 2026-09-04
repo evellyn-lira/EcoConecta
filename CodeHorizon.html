@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -259,7 +258,10 @@ img{
   padding:0 4px;
 }
 
+/* -------- Filtros de cima (chips) -------- */
+
 .filters-nav{
+  position:relative;
   display:flex;
   align-items:center;
   gap:.25rem;
@@ -283,6 +285,49 @@ img{
   background:var(--color-muted);
   color:var(--color-foreground);
   border-color:var(--color-border);
+}
+
+.filter-chip.is-active{
+  background:var(--color-secondary);
+  color:var(--color-secondary-foreground);
+  border-color:var(--color-secondary);
+}
+
+.filter-chip .chip-count{
+  background:var(--color-primary);
+  color:#fff;
+  font-size:9px;
+  font-weight:700;
+  border-radius:9999px;
+  padding:1px 6px;
+}
+
+/* painel que abre embaixo do chip clicado */
+.chip-dropdown{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  min-width:220px;
+  background:#fff;
+  border:1px solid var(--color-border);
+  border-radius:.9rem;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
+  padding:.9rem;
+  display:none;
+  z-index:60;
+}
+
+.chip-dropdown.active{
+  display:block;
+}
+
+.chip-dropdown-title{
+  font-size:.75rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--color-muted-foreground);
+  margin:0 0 .6rem;
 }
 
 @media(max-width:639px){
@@ -395,7 +440,7 @@ main{
 }
 
 
-/* ================= CATÁLOGO ================= */
+/* ================= CATÁLOGO + SIDEBAR ================= */
 
 .catalog-section{
   margin-bottom:4rem;
@@ -406,6 +451,105 @@ main{
   font-size:1.5rem;
   font-weight:700;
   margin:0 0 1.5rem;
+}
+
+/* layout de duas colunas: sidebar + grade de produtos */
+.catalog-layout{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2rem;
+  align-items:start;
+}
+
+@media(min-width:900px){
+  .catalog-layout{
+    grid-template-columns:230px 1fr;
+  }
+}
+
+/* -------- Sidebar de filtros -------- */
+
+.filters-sidebar{
+  background:var(--color-card);
+  border:1px solid var(--color-border);
+  border-radius:1rem;
+  padding:1.25rem;
+}
+
+.filters-sidebar[open] > summary{
+  margin-bottom:.75rem;
+}
+
+.filters-sidebar > summary{
+  font-family:var(--font-heading);
+  font-weight:700;
+  font-size:1rem;
+  cursor:pointer;
+  list-style:none;
+}
+
+.filters-sidebar > summary::-webkit-details-marker{
+  display:none;
+}
+
+@media(min-width:900px){
+  .filters-sidebar > summary{
+    pointer-events:none;
+  }
+}
+
+.filter-block{
+  padding:1rem 0;
+}
+
+.filter-block:first-of-type{
+  padding-top:0;
+}
+
+.filter-divider{
+  height:1px;
+  background:var(--color-border);
+}
+
+.filter-block-title{
+  font-size:.75rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--color-muted-foreground);
+  margin:0 0 .65rem;
+}
+
+.filter-option{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:.8125rem;
+  padding:.3rem 0;
+  cursor:pointer;
+  color:var(--color-foreground);
+}
+
+.filter-option input{
+  accent-color:var(--color-primary);
+  width:15px;
+  height:15px;
+  flex-shrink:0;
+}
+
+.btn-clear-filters{
+  width:100%;
+  margin-top:.5rem;
+  padding:.6rem;
+  font-size:.8125rem;
+  font-weight:600;
+  color:var(--color-primary);
+  border:1px solid var(--color-border);
+  border-radius:.65rem;
+}
+
+.btn-clear-filters:hover{
+  background:var(--color-muted);
 }
 
 .product-grid{
@@ -420,15 +564,9 @@ main{
   }
 }
 
-@media(min-width:768px){
-  .product-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
 @media(min-width:1024px){
   .product-grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 }
 
@@ -524,6 +662,15 @@ main{
   display:flex;
   flex-direction:column;
   flex:1;
+}
+
+.product-category{
+  font-size:10px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--color-primary);
+  margin:0 0 .25rem;
 }
 
 .product-name{
@@ -807,6 +954,33 @@ main{
   gap:.75rem;
 }
 
+/* -------- Abas Entrar / Cadastrar (divisória do modal de login) -------- */
+
+.auth-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:.5rem;
+  background:var(--color-muted);
+  border-radius:.75rem;
+  padding:.25rem;
+  margin-bottom:1.25rem;
+}
+
+.auth-tab{
+  padding:.6rem;
+  border-radius:.6rem;
+  font-size:.875rem;
+  font-weight:600;
+  color:var(--color-muted-foreground);
+  text-align:center;
+}
+
+.auth-tab.is-active{
+  background:#fff;
+  color:var(--color-primary);
+  box-shadow:0 1px 2px rgba(0,0,0,.06);
+}
+
 .modal-button{
   width:100%;
   padding:.8rem 1rem;
@@ -903,106 +1077,108 @@ footer.site-footer{
 
   <div class="container">
 
-```
-<div class="header-row">
+    <div class="header-row">
 
-  <a href="#" class="logo">
+      <a href="#" class="logo">
 
-    <div class="logo-mark">
+        <div class="logo-mark">
 
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-14 6 1-3 3-5 6-6 0 0-3 0-4 1-2 1-3 3-3 4 0 0 1-1 3-1 4 0 5 3 5 6 0 0-3-3-7-3-3 0-4 2-4 2s.5-1 2-1c4 0 6 4 6 4z"/>
-      </svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-14 6 1-3 3-5 6-6 0 0-3 0-4 1-2 1-3 3-3 4 0 0 1-1 3-1 4 0 5 3 5 6 0 0-3-3-7-3-3 0-4 2-4 2s.5-1 2-1c4 0 6 4 6 4z"/>
+          </svg>
+
+        </div>
+
+        <div class="logo-text">
+          <span class="logo-title">Code Horizon</span>
+          <span class="logo-sub">Do Campo à Mesa</span>
+        </div>
+
+      </a>
+
+
+      <div class="search-wrap">
+
+        <div class="search-box">
+
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Buscar produtos, produtores, regiões…"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="header-actions">
+
+        <button class="btn-signin" id="signinBtn">
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+
+          <span id="signinBtnLabel">Entrar/Cadastro</span>
+
+        </button>
+
+
+        <button class="btn-cart" aria-label="Carrinho">
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+
+          <span id="cartBadge" class="cart-badge" style="display:none;">0</span>
+
+        </button>
+
+      </div>
 
     </div>
 
-    <div class="logo-text">
-      <span class="logo-title">Code Horizon</span>
-      <span class="logo-sub">Do Campo à Mesa</span>
-    </div>
 
-  </a>
+    <!-- Os data-filter identificam qual painel cada chip abre -->
+    <nav class="filters-nav scrollbar-hide" id="filtersNav">
 
+      <button class="filter-chip" data-filter="categoria">
+        <span>🥦</span>
+        <span>Categoria</span>
+        <span>⌄</span>
+      </button>
 
-  <div class="search-wrap">
+      <button class="filter-chip" data-filter="cultivo">
+        <span>🌱</span>
+        <span>Tipo de Cultivo</span>
+        <span>⌄</span>
+      </button>
 
-    <div class="search-box">
+      <button class="filter-chip" data-filter="certificado">
+        <span>✓</span>
+        <span>Orgânico/Certificado</span>
+        <span>⌄</span>
+      </button>
 
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="11" cy="11" r="8"/>
-        <path d="m21 21-4.35-4.35"/>
-      </svg>
+      <button class="filter-chip" data-filter="distancia">
+        <span>📍</span>
+        <span>Distância/Região</span>
+        <span>⌄</span>
+      </button>
 
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Buscar produtos, produtores, regiões…"
-      >
+      <!-- painel flutuante único, reaproveitado por todos os chips -->
+      <div class="chip-dropdown" id="chipDropdown"></div>
 
-    </div>
-
-  </div>
-
-
-  <div class="header-actions">
-
-    <button class="btn-signin">
-
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
-
-      <span>Entrar</span>
-
-    </button>
-
-
-    <button class="btn-cart" aria-label="Carrinho">
-
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <path d="M16 10a4 4 0 0 1-8 0"/>
-      </svg>
-
-      <span id="cartBadge" class="cart-badge" style="display:none;">0</span>
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<nav class="filters-nav scrollbar-hide">
-
-  <button class="filter-chip">
-    <span>🥦</span>
-    <span>Categoria</span>
-    <span>⌄</span>
-  </button>
-
-  <button class="filter-chip">
-    <span>🌱</span>
-    <span>Tipo de Cultivo</span>
-    <span>⌄</span>
-  </button>
-
-  <button class="filter-chip">
-    <span>✓</span>
-    <span>Orgânico/Certificado</span>
-    <span>⌄</span>
-  </button>
-
-  <button class="filter-chip">
-    <span>📍</span>
-    <span>Distância/Região</span>
-    <span>⌄</span>
-  </button>
-
-</nav>
-```
+    </nav>
 
   </div>
 
@@ -1014,52 +1190,127 @@ footer.site-footer{
 
   <section class="hero-section container">
 
-```
-<div class="hero-card">
+    <div class="hero-card">
 
-  <div class="hero-content">
+      <div class="hero-content">
 
-    <span class="hero-eyebrow">
-      <span class="rule"></span>
-      Vendas diretas do produtor ao consumidor
-    </span>
+        <span class="hero-eyebrow">
+          <span class="rule"></span>
+          Vendas diretas do produtor ao consumidor
+        </span>
 
-    <h1 class="hero-title">
-      Do campo
-      <br>
-      <em>à sua mesa,</em>
-      <br>
-      sem atravessadores
-    </h1>
+        <h1 class="hero-title">
+          Do campo
+          <br>
+          <em>à sua mesa,</em>
+          <br>
+          sem atravessadores
+        </h1>
 
-    <p class="hero-desc">
-      Alimentos frescos com rastreamento completo,
-      menor pegada de carbono e renda justa para o produtor.
-    </p>
+        <p class="hero-desc">
+          Alimentos frescos com rastreamento completo,
+          menor pegada de carbono e renda justa para o produtor.
+        </p>
 
-    <div>
-      <a href="#vitrine" class="btn-cta">
-        Explorar Produtos
-      </a>
+        <div>
+          <a href="#vitrine" class="btn-cta">
+            Explorar Produtos
+          </a>
+        </div>
+
+      </div>
+
     </div>
-
-  </div>
-
-</div>
-```
 
   </section>
 
   <section id="vitrine" class="catalog-section container">
 
-```
-<h2 class="catalog-title">
-  Catálogo de Produtos
-  (<span id="productCount">12</span>)
-</h2>
+    <h2 class="catalog-title">
+      Catálogo de Produtos
+      (<span id="productCount">12</span>)
+    </h2>
 
-<div id="productGrid" class="product-grid"></div>
-```
+    <div class="catalog-layout">
+
+      <!-- ============ SIDEBAR DE FILTROS ============ -->
+      <details class="filters-sidebar" id="filtersSidebar" open>
+
+        <summary>Filtros</summary>
+
+        <div class="filter-block">
+          <p class="filter-block-title">Categoria</p>
+          <div id="sidebarCategoryList"></div>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-block">
+          <p class="filter-block-title">Tipo de Cultivo</p>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarCultivo" value="todos" checked>
+            Todos
+          </label>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarCultivo" value="organico">
+            Orgânico
+          </label>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarCultivo" value="convencional">
+            Convencional
+          </label>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-block">
+          <p class="filter-block-title">Certificação</p>
+
+          <label class="filter-option">
+            <input type="checkbox" id="sidebarCertified">
+            Somente certificados
+          </label>
+        </div>
+
+        <div class="filter-divider"></div>
+
+        <div class="filter-block">
+          <p class="filter-block-title">Distância</p>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarDistance" value="todos" checked>
+            Qualquer distância
+          </label>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarDistance" value="50">
+            Até 50 km
+          </label>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarDistance" value="100">
+            Até 100 km
+          </label>
+
+          <label class="filter-option">
+            <input type="radio" name="sidebarDistance" value="200">
+            Até 200 km
+          </label>
+        </div>
+
+        <button class="btn-clear-filters" id="clearFiltersBtn">
+          Limpar filtros
+        </button>
+
+      </details>
+
+      <!-- ============ GRADE DE PRODUTOS ============ -->
+      <div id="productGrid" class="product-grid"></div>
+
+    </div>
 
   </section>
 
@@ -1071,41 +1322,39 @@ footer.site-footer{
 
   <div class="modal modal-large">
 
-```
-<div class="modal-header">
+    <div class="modal-header">
 
-  <h2 class="modal-title">
-    🛒 Meu Carrinho
-  </h2>
+      <h2 class="modal-title">
+        🛒 Meu Carrinho
+      </h2>
 
-  <button
-    class="close-modal"
-    onclick="closeModal('cartModal')"
-  >
-    ×
-  </button>
+      <button
+        class="close-modal"
+        onclick="closeModal('cartModal')"
+      >
+        ×
+      </button>
 
-</div>
+    </div>
 
-<div id="cartItems"></div>
+    <div id="cartItems"></div>
 
-<div class="cart-total">
+    <div class="cart-total">
 
-  <span>Total</span>
+      <span>Total</span>
 
-  <strong id="cartTotal">
-    R$ 0,00
-  </strong>
+      <strong id="cartTotal">
+        R$ 0,00
+      </strong>
 
-</div>
+    </div>
 
-<button
-  class="modal-button"
-  onclick="goToCheckout()"
->
-  Continuar para pagamento
-</button>
-```
+    <button
+      class="modal-button"
+      onclick="goToCheckout()"
+    >
+      Continuar para pagamento
+    </button>
 
   </div>
 
@@ -1117,63 +1366,175 @@ footer.site-footer{
 
   <div class="modal">
 
-```
-<div class="modal-header">
+    <div class="modal-header">
 
-  <h2 class="modal-title">
-    👤 Entrar
-  </h2>
+      <h2 class="modal-title" id="authModalTitle">
+        👤 Entrar
+      </h2>
 
-  <button
-    class="close-modal"
-    onclick="closeModal('loginModal')"
-  >
-    ×
-  </button>
+      <button
+        class="close-modal"
+        onclick="closeModal('loginModal')"
+      >
+        ×
+      </button>
 
-</div>
+    </div>
 
-<form id="loginForm">
+    <!-- Divisória com as duas abas: Entrar e Cadastrar -->
+    <div class="auth-tabs">
 
-  <div class="form-group">
+      <button
+        type="button"
+        class="auth-tab is-active"
+        id="tabEntrar"
+        onclick="switchAuthTab('entrar')"
+      >
+        Entrar
+      </button>
 
-    <label for="loginEmail">
-      E-mail
-    </label>
+      <button
+        type="button"
+        class="auth-tab"
+        id="tabCadastrar"
+        onclick="switchAuthTab('cadastrar')"
+      >
+        Cadastrar
+      </button>
 
-    <input
-      id="loginEmail"
-      type="email"
-      placeholder="seuemail@email.com"
-      required
-    >
+    </div>
 
-  </div>
+    <!-- ===== Formulário de Entrar ===== -->
+    <form id="loginForm">
 
-  <div class="form-group">
+      <div class="form-group">
 
-    <label for="loginPassword">
-      Senha
-    </label>
+        <label for="loginEmail">
+          E-mail
+        </label>
 
-    <input
-      id="loginPassword"
-      type="password"
-      placeholder="Digite sua senha"
-      required
-    >
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="seuemail@email.com"
+          required
+        >
 
-  </div>
+      </div>
 
-  <button
-    class="modal-button"
-    type="submit"
-  >
-    Entrar
-  </button>
+      <div class="form-group">
 
-</form>
-```
+        <label for="loginPassword">
+          Senha
+        </label>
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Digite sua senha"
+          required
+        >
+
+      </div>
+
+      <button
+        class="modal-button"
+        type="submit"
+      >
+        Entrar
+      </button>
+
+    </form>
+
+    <!-- ===== Formulário de Cadastrar ===== -->
+    <form id="registerForm" style="display:none;">
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label for="registerFirstName">
+            Nome
+          </label>
+
+          <input
+            id="registerFirstName"
+            type="text"
+            placeholder="Seu nome"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="registerLastName">
+            Sobrenome
+          </label>
+
+          <input
+            id="registerLastName"
+            type="text"
+            placeholder="Seu sobrenome"
+            required
+          >
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="registerBirthdate">
+          Data de Nascimento
+        </label>
+
+        <input
+          id="registerBirthdate"
+          type="date"
+          required
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="registerEmail">
+          E-mail
+        </label>
+
+        <input
+          id="registerEmail"
+          type="email"
+          placeholder="seuemail@email.com"
+          required
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label for="registerPassword">
+          Senha
+        </label>
+
+        <input
+          id="registerPassword"
+          type="password"
+          placeholder="Crie uma senha"
+          required
+        >
+
+      </div>
+
+      <button
+        class="modal-button"
+        type="submit"
+      >
+        Cadastrar
+      </button>
+
+    </form>
 
   </div>
 
@@ -1185,198 +1546,59 @@ footer.site-footer{
 
   <div class="modal modal-large">
 
-```
-<div class="modal-header">
+    <div class="modal-header">
 
-  <h2 class="modal-title">
-    💳 Finalizar compra
-  </h2>
+      <h2 class="modal-title">
+        💳 Finalizar compra
+      </h2>
 
-  <button
-    class="close-modal"
-    onclick="closeModal('paymentModal')"
-  >
-    ×
-  </button>
-
-</div>
-
-
-<div class="order-summary">
-
-  <div class="order-summary-row">
-    <span>Produtos</span>
-    <strong id="paymentProducts">
-      R$ 0,00
-    </strong>
-  </div>
-
-  <div class="order-summary-row">
-    <span>Frete</span>
-    <strong>Grátis</strong>
-  </div>
-
-  <div class="order-summary-row">
-    <span>Total</span>
-    <strong id="paymentTotal">
-      R$ 0,00
-    </strong>
-  </div>
-
-</div>
-
-
-<form id="paymentForm">
-
-  <div class="form-group">
-
-    <label>
-      Nome completo
-    </label>
-
-    <input
-      type="text"
-      id="customerName"
-      placeholder="Digite seu nome"
-      required
-    >
-
-  </div>
-
-
-  <div class="form-group">
-
-    <label>
-      Endereço de entrega
-    </label>
-
-    <input
-      type="text"
-      id="customerAddress"
-      placeholder="Rua, número e bairro"
-      required
-    >
-
-  </div>
-
-
-  <div class="form-row">
-
-    <div class="form-group">
-
-      <label>
-        Cidade
-      </label>
-
-      <input
-        type="text"
-        id="customerCity"
-        placeholder="Sua cidade"
-        required
+      <button
+        class="close-modal"
+        onclick="closeModal('paymentModal')"
       >
+        ×
+      </button>
 
     </div>
 
 
-    <div class="form-group">
+    <div class="order-summary">
 
-      <label>
-        CEP
-      </label>
+      <div class="order-summary-row">
+        <span>Produtos</span>
+        <strong id="paymentProducts">
+          R$ 0,00
+        </strong>
+      </div>
 
-      <input
-        type="text"
-        id="customerCep"
-        placeholder="00000-000"
-        required
-      >
+      <div class="order-summary-row">
+        <span>Frete</span>
+        <strong>Grátis</strong>
+      </div>
 
-    </div>
-
-  </div>
-
-
-  <div class="form-group">
-
-    <label>
-      Forma de pagamento
-    </label>
-
-    <div class="payment-methods">
-
-      <label class="payment-option">
-
-        <input
-          type="radio"
-          name="payment"
-          value="pix"
-          checked
-        >
-
-        <span>💚 PIX</span>
-
-      </label>
-
-
-      <label class="payment-option">
-
-        <input
-          type="radio"
-          name="payment"
-          value="card"
-        >
-
-        <span>💳 Cartão</span>
-
-      </label>
-
-
-      <label class="payment-option">
-
-        <input
-          type="radio"
-          name="payment"
-          value="boleto"
-        >
-
-        <span>📄 Boleto</span>
-
-      </label>
-
-    </div>
-
-  </div>
-
-
-  <div id="cardFields" style="display:none;">
-
-    <div class="form-group">
-
-      <label>
-        Número do cartão
-      </label>
-
-      <input
-        type="text"
-        placeholder="0000 0000 0000 0000"
-        maxlength="19"
-      >
+      <div class="order-summary-row">
+        <span>Total</span>
+        <strong id="paymentTotal">
+          R$ 0,00
+        </strong>
+      </div>
 
     </div>
 
 
-    <div class="form-row">
+    <form id="paymentForm">
 
       <div class="form-group">
 
         <label>
-          Validade
+          Nome completo
         </label>
 
         <input
           type="text"
-          placeholder="MM/AA"
-          maxlength="5"
+          id="customerName"
+          placeholder="Digite seu nome"
+          required
         >
 
       </div>
@@ -1385,31 +1607,168 @@ footer.site-footer{
       <div class="form-group">
 
         <label>
-          CVV
+          Endereço de entrega
         </label>
 
         <input
           type="text"
-          placeholder="123"
-          maxlength="4"
+          id="customerAddress"
+          placeholder="Rua, número e bairro"
+          required
         >
 
       </div>
 
-    </div>
 
-  </div>
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Cidade
+          </label>
+
+          <input
+            type="text"
+            id="customerCity"
+            placeholder="Sua cidade"
+            required
+          >
+
+        </div>
 
 
-  <button
-    class="modal-button"
-    type="submit"
-  >
-    Confirmar pedido
-  </button>
+        <div class="form-group">
 
-</form>
-```
+          <label>
+            CEP
+          </label>
+
+          <input
+            type="text"
+            id="customerCep"
+            placeholder="00000-000"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Forma de pagamento
+        </label>
+
+        <div class="payment-methods">
+
+          <label class="payment-option">
+
+            <input
+              type="radio"
+              name="payment"
+              value="pix"
+              checked
+            >
+
+            <span>💚 PIX</span>
+
+          </label>
+
+
+          <label class="payment-option">
+
+            <input
+              type="radio"
+              name="payment"
+              value="card"
+            >
+
+            <span>💳 Cartão</span>
+
+          </label>
+
+
+          <label class="payment-option">
+
+            <input
+              type="radio"
+              name="payment"
+              value="boleto"
+            >
+
+            <span>📄 Boleto</span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div id="cardFields" style="display:none;">
+
+        <div class="form-group">
+
+          <label>
+            Número do cartão
+          </label>
+
+          <input
+            type="text"
+            placeholder="0000 0000 0000 0000"
+            maxlength="19"
+          >
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label>
+              Validade
+            </label>
+
+            <input
+              type="text"
+              placeholder="MM/AA"
+              maxlength="5"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              CVV
+            </label>
+
+            <input
+              type="text"
+              placeholder="123"
+              maxlength="4"
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="modal-button"
+        type="submit"
+      >
+        Confirmar pedido
+      </button>
+
+    </form>
 
   </div>
 
@@ -1421,34 +1780,32 @@ footer.site-footer{
 
   <div class="modal">
 
-```
-<div class="success-message">
+    <div class="success-message">
 
-  <div class="success-icon">
-    ✓
-  </div>
+      <div class="success-icon">
+        ✓
+      </div>
 
-  <h2 class="modal-title">
-    Pedido realizado!
-  </h2>
+      <h2 class="modal-title">
+        Pedido realizado!
+      </h2>
 
-  <p>
-    Obrigado pela sua compra. 🌱
-  </p>
+      <p>
+        Obrigado pela sua compra. 🌱
+      </p>
 
-  <p style="color:var(--color-muted-foreground);font-size:.875rem;">
-    Seu pedido foi registrado com sucesso.
-  </p>
+      <p style="color:var(--color-muted-foreground);font-size:.875rem;">
+        Seu pedido foi registrado com sucesso.
+      </p>
 
-  <button
-    class="modal-button"
-    onclick="closeModal('successModal')"
-  >
-    Voltar para a loja
-  </button>
+      <button
+        class="modal-button"
+        onclick="closeModal('successModal')"
+      >
+        Voltar para a loja
+      </button>
 
-</div>
-```
+    </div>
 
   </div>
 
@@ -1464,12 +1821,15 @@ footer.site-footer{
 
 
 /* ================= PRODUTOS ================= */
+/* Cada produto agora tem um campo "category" — é ele que
+   alimenta tanto a sidebar quanto o chip "Categoria" de cima. */
 
 const ALL_PRODUCTS = [
 
   {
     id:1,
     name:"Tomate Cereja",
+    category:"Verduras e Legumes",
     price:8.9,
     unit:"500g",
     origin:"Serra Gaúcha, RS",
@@ -1488,6 +1848,7 @@ const ALL_PRODUCTS = [
   {
     id:2,
     name:"Cenoura",
+    category:"Verduras e Legumes",
     price:6.5,
     unit:"400g",
     origin:"Campinas, SP",
@@ -1506,6 +1867,7 @@ const ALL_PRODUCTS = [
   {
     id:3,
     name:"Morango",
+    category:"Frutas",
     price:12.9,
     unit:"300g",
     origin:"Atibaia, SP",
@@ -1524,6 +1886,7 @@ const ALL_PRODUCTS = [
   {
     id:4,
     name:"Mel",
+    category:"Mel e Derivados",
     price:24.9,
     unit:"300ml",
     origin:"Chapada Diamantina, BA",
@@ -1542,6 +1905,7 @@ const ALL_PRODUCTS = [
   {
     id:5,
     name:"Abóbora",
+    category:"Verduras e Legumes",
     price:9.8,
     unit:"1 kg",
     origin:"Londrina, PR",
@@ -1558,6 +1922,7 @@ const ALL_PRODUCTS = [
   {
     id:6,
     name:"Ovos",
+    category:"Ovos e Laticínios",
     price:14.5,
     unit:"Dúzia",
     origin:"Piracicaba, SP",
@@ -1576,6 +1941,7 @@ const ALL_PRODUCTS = [
   {
     id:7,
     name:"Manjericão Fresco",
+    category:"Temperos e Ervas",
     price:4.9,
     unit:"Maço",
     origin:"Holambra, SP",
@@ -1592,6 +1958,7 @@ const ALL_PRODUCTS = [
   {
     id:8,
     name:"Maçã",
+    category:"Frutas",
     price:11.9,
     unit:"1 kg",
     origin:"Fraiburgo, SC",
@@ -1608,6 +1975,7 @@ const ALL_PRODUCTS = [
   {
     id:9,
     name:"Abacate",
+    category:"Frutas",
     price:7.9,
     unit:"2 unid.",
     origin:"Votuporanga, SP",
@@ -1624,6 +1992,7 @@ const ALL_PRODUCTS = [
   {
     id:10,
     name:"Feijão Carioca",
+    category:"Grãos e Cereais",
     price:13.9,
     unit:"1 kg",
     origin:"Patos de Minas, MG",
@@ -1640,6 +2009,7 @@ const ALL_PRODUCTS = [
   {
     id:11,
     name:"Batata-Doce Roxa",
+    category:"Verduras e Legumes",
     price:10.5,
     unit:"1 kg",
     origin:"Irecê, BA",
@@ -1656,6 +2026,7 @@ const ALL_PRODUCTS = [
   {
     id:12,
     name:"Milho Verde",
+    category:"Verduras e Legumes",
     price:5.5,
     unit:"2 espigas",
     origin:"Uberlândia, MG",
@@ -1667,6 +2038,114 @@ const ALL_PRODUCTS = [
     reviews:63,
     image:"https://apoioentrega.vteximg.com.br/arquivos/ids/521145/95295.jpg?v=638175996044100000",
     distance:170
+  },
+
+  /* -------- Produtos novos -------- */
+
+  {
+    id:13,
+    name:"Banana Prata",
+    category:"Frutas",
+    price:6.9,
+    unit:"1 kg",
+    origin:"Registro, SP",
+    farmer:"Sítio Vale do Ribeira",
+    organic:true,
+    certified:true,
+    carbon:0.2,
+    rating:4.7,
+    reviews:58,
+    image:"https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=600&q=80",
+    distance:98,
+    badge:"Orgânico",
+    badgeColor:"primary"
+  },
+
+  {
+    id:14,
+    name:"Uva Itália",
+    category:"Frutas",
+    price:15.9,
+    unit:"500g",
+    origin:"Vale do São Francisco, PE",
+    farmer:"Fazenda Sol Nascente",
+    organic:false,
+    certified:true,
+    carbon:0.5,
+    rating:4.8,
+    reviews:41,
+    image:"https://images.unsplash.com/photo-1596363505729-4190a9506133?w=600&q=80",
+    distance:250
+  },
+
+  {
+    id:15,
+    name:"Alface Crespa",
+    category:"Verduras e Legumes",
+    price:3.9,
+    unit:"Unidade",
+    origin:"Holambra, SP",
+    farmer:"Horta Estufa Viva",
+    organic:true,
+    certified:true,
+    carbon:0.1,
+    rating:4.6,
+    reviews:29,
+    image:"https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=600&q=80",
+    distance:28,
+    badge:"Bio",
+    badgeColor:"accent"
+  },
+
+  {
+    id:16,
+    name:"Pepino",
+    category:"Verduras e Legumes",
+    price:4.5,
+    unit:"600g",
+    origin:"Sorocaba, SP",
+    farmer:"Chácara Bom Jardim",
+    organic:false,
+    certified:false,
+    carbon:0.2,
+    rating:4.5,
+    reviews:33,
+    image:"https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=600&q=80",
+    distance:70
+  },
+
+  {
+    id:17,
+    name:"Laranja Pera",
+    category:"Frutas",
+    price:7.5,
+    unit:"1,5 kg",
+    origin:"Bebedouro, SP",
+    farmer:"Citros Bebedouro",
+    organic:false,
+    certified:true,
+    carbon:0.3,
+    rating:4.7,
+    reviews:87,
+    image:"https://images.unsplash.com/photo-1547514701-42782101795e?w=600&q=80",
+    distance:105
+  },
+
+  {
+    id:18,
+    name:"Beterraba",
+    category:"Verduras e Legumes",
+    price:5.9,
+    unit:"600g",
+    origin:"São José dos Pinhais, PR",
+    farmer:"Horta Raízes do Sul",
+    organic:true,
+    certified:true,
+    carbon:0.2,
+    rating:4.4,
+    reviews:19,
+    image:"https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/02/beterraba.jpg?w=1200&h=900&crop=10",
+    distance:82
   }
 
 ];
@@ -1677,6 +2156,16 @@ const BADGE_CLASS = {
   primary:"badge-primary",
   accent:"badge-accent"
 };
+
+/* Lista fixa de categorias, na ordem que devem aparecer nos filtros */
+const CATEGORIES = [
+  "Frutas",
+  "Verduras e Legumes",
+  "Grãos e Cereais",
+  "Ovos e Laticínios",
+  "Mel e Derivados",
+  "Temperos e Ervas"
+];
 
 
 /* ================= ÍCONES ================= */
@@ -1707,6 +2196,82 @@ const fmtCurrency = (value) => {
   );
 
 };
+
+
+/* =========================================================
+   ESTADO CENTRAL DOS FILTROS
+   Tudo (sidebar + chips de cima + busca) lê e escreve aqui.
+   ========================================================= */
+
+const filterState = {
+  search:"",
+  categories:new Set(),   // vazio = todas as categorias
+  cultivo:"todos",        // todos | organico | convencional
+  certified:false,
+  distance:"todos"        // todos | 50 | 100 | 200
+};
+
+
+function getFilteredProducts(){
+
+  return ALL_PRODUCTS.filter(p => {
+
+    if(filterState.search){
+
+      const q = filterState.search;
+
+      const matches =
+        p.name.toLowerCase().includes(q) ||
+        p.farmer.toLowerCase().includes(q) ||
+        p.origin.toLowerCase().includes(q);
+
+      if(!matches){
+        return false;
+      }
+
+    }
+
+    if(
+      filterState.categories.size > 0 &&
+      !filterState.categories.has(p.category)
+    ){
+      return false;
+    }
+
+    if(filterState.cultivo === "organico" && !p.organic){
+      return false;
+    }
+
+    if(filterState.cultivo === "convencional" && p.organic){
+      return false;
+    }
+
+    if(filterState.certified && !p.certified){
+      return false;
+    }
+
+    if(
+      filterState.distance !== "todos" &&
+      p.distance > Number(filterState.distance)
+    ){
+      return false;
+    }
+
+    return true;
+
+  });
+
+}
+
+
+/* Chama isso toda vez que um filtro muda: reaplica a busca
+   e re-renderiza a grade + sincroniza a UI. */
+function applyFilters(){
+
+  render(getFilteredProducts());
+  updateChipStates();
+
+}
 
 
 /* ================= PRODUTOS NA TELA ================= */
@@ -1744,6 +2309,10 @@ function productCardHTML(p){
 
 
       <div class="product-body">
+
+        <p class="product-category">
+          ${p.category}
+        </p>
 
         <h3 class="product-name">
           ${p.name}
@@ -1839,7 +2408,7 @@ function render(products){
 
     grid.innerHTML = `
       <p class="no-results">
-        Nenhum produto encontrado.
+        Nenhum produto encontrado com esses filtros.
       </p>
     `;
 
@@ -1852,6 +2421,352 @@ function render(products){
     products.map(productCardHTML).join("");
 
 }
+
+
+/* =========================================================
+   SIDEBAR — monta a lista de categorias (checkbox) e liga
+   os eventos de radio/checkbox ao filterState.
+   ========================================================= */
+
+function renderSidebarCategories(){
+
+  const list =
+    document.getElementById("sidebarCategoryList");
+
+  list.innerHTML =
+    CATEGORIES.map(cat => `
+      <label class="filter-option">
+        <input type="checkbox" class="sidebar-cat" value="${cat}">
+        ${cat}
+      </label>
+    `).join("");
+
+  list.querySelectorAll(".sidebar-cat").forEach(cb => {
+
+    cb.addEventListener("change", () => {
+
+      if(cb.checked){
+        filterState.categories.add(cb.value);
+      }else{
+        filterState.categories.delete(cb.value);
+      }
+
+      applyFilters();
+
+    });
+
+  });
+
+}
+
+
+document
+  .querySelectorAll('input[name="sidebarCultivo"]')
+  .forEach(radio => {
+
+    radio.addEventListener("change", () => {
+
+      filterState.cultivo = radio.value;
+      applyFilters();
+
+    });
+
+  });
+
+
+document
+  .getElementById("sidebarCertified")
+  .addEventListener("change", (e) => {
+
+    filterState.certified = e.target.checked;
+    applyFilters();
+
+  });
+
+
+document
+  .querySelectorAll('input[name="sidebarDistance"]')
+  .forEach(radio => {
+
+    radio.addEventListener("change", () => {
+
+      filterState.distance = radio.value;
+      applyFilters();
+
+    });
+
+  });
+
+
+document
+  .getElementById("clearFiltersBtn")
+  .addEventListener("click", () => {
+
+    filterState.search = "";
+    filterState.categories.clear();
+    filterState.cultivo = "todos";
+    filterState.certified = false;
+    filterState.distance = "todos";
+
+    document.getElementById("searchInput").value = "";
+
+    document
+      .querySelectorAll(".sidebar-cat")
+      .forEach(cb => cb.checked = false);
+
+    document.querySelector(
+      'input[name="sidebarCultivo"][value="todos"]'
+    ).checked = true;
+
+    document.getElementById("sidebarCertified").checked = false;
+
+    document.querySelector(
+      'input[name="sidebarDistance"][value="todos"]'
+    ).checked = true;
+
+    applyFilters();
+
+  });
+
+
+/* =========================================================
+   CHIPS DE CIMA — cada um abre o mesmo painel (#chipDropdown)
+   com o conteúdo referente ao seu tipo de filtro.
+   ========================================================= */
+
+function buildDropdownContent(type){
+
+  if(type === "categoria"){
+
+    return `
+      <p class="chip-dropdown-title">Categoria</p>
+      ${CATEGORIES.map(cat => `
+        <label class="filter-option">
+          <input type="checkbox" class="chip-cat" value="${cat}"
+            ${filterState.categories.has(cat) ? "checked" : ""}>
+          ${cat}
+        </label>
+      `).join("")}
+    `;
+
+  }
+
+  if(type === "cultivo"){
+
+    return `
+      <p class="chip-dropdown-title">Tipo de Cultivo</p>
+      <label class="filter-option">
+        <input type="radio" name="chipCultivo" value="todos"
+          ${filterState.cultivo === "todos" ? "checked" : ""}>
+        Todos
+      </label>
+      <label class="filter-option">
+        <input type="radio" name="chipCultivo" value="organico"
+          ${filterState.cultivo === "organico" ? "checked" : ""}>
+        Orgânico
+      </label>
+      <label class="filter-option">
+        <input type="radio" name="chipCultivo" value="convencional"
+          ${filterState.cultivo === "convencional" ? "checked" : ""}>
+        Convencional
+      </label>
+    `;
+
+  }
+
+  if(type === "certificado"){
+
+    return `
+      <p class="chip-dropdown-title">Certificação</p>
+      <label class="filter-option">
+        <input type="checkbox" id="chipCertified"
+          ${filterState.certified ? "checked" : ""}>
+        Somente certificados
+      </label>
+    `;
+
+  }
+
+  if(type === "distancia"){
+
+    return `
+      <p class="chip-dropdown-title">Distância</p>
+      <label class="filter-option">
+        <input type="radio" name="chipDistance" value="todos"
+          ${filterState.distance === "todos" ? "checked" : ""}>
+        Qualquer distância
+      </label>
+      <label class="filter-option">
+        <input type="radio" name="chipDistance" value="50"
+          ${filterState.distance === "50" ? "checked" : ""}>
+        Até 50 km
+      </label>
+      <label class="filter-option">
+        <input type="radio" name="chipDistance" value="100"
+          ${filterState.distance === "100" ? "checked" : ""}>
+        Até 100 km
+      </label>
+      <label class="filter-option">
+        <input type="radio" name="chipDistance" value="200"
+          ${filterState.distance === "200" ? "checked" : ""}>
+        Até 200 km
+      </label>
+    `;
+
+  }
+
+  return "";
+
+}
+
+
+/* Mantém sidebar e chips sincronizados com o filterState atual,
+   e destaca visualmente os chips que têm filtro ativo. */
+function syncSidebarFromState(){
+
+  document.querySelectorAll(".sidebar-cat").forEach(cb => {
+    cb.checked = filterState.categories.has(cb.value);
+  });
+
+  document.querySelector(
+    `input[name="sidebarCultivo"][value="${filterState.cultivo}"]`
+  ).checked = true;
+
+  document.getElementById("sidebarCertified").checked =
+    filterState.certified;
+
+  document.querySelector(
+    `input[name="sidebarDistance"][value="${filterState.distance}"]`
+  ).checked = true;
+
+}
+
+
+function updateChipStates(){
+
+  document.querySelectorAll(".filter-chip").forEach(chip => {
+
+    const type = chip.dataset.filter;
+    let active = false;
+
+    if(type === "categoria") active = filterState.categories.size > 0;
+    if(type === "cultivo") active = filterState.cultivo !== "todos";
+    if(type === "certificado") active = filterState.certified;
+    if(type === "distancia") active = filterState.distance !== "todos";
+
+    chip.classList.toggle("is-active", active);
+
+  });
+
+}
+
+
+function openChipDropdown(chip){
+
+  const dropdown =
+    document.getElementById("chipDropdown");
+
+  const type = chip.dataset.filter;
+
+  dropdown.innerHTML = buildDropdownContent(type);
+
+  // posiciona o painel logo abaixo do chip clicado
+  dropdown.style.left = chip.offsetLeft + "px";
+
+  dropdown.classList.add("active");
+
+
+  // liga os eventos do conteúdo recém-criado ao filterState
+  dropdown.querySelectorAll(".chip-cat").forEach(cb => {
+
+    cb.addEventListener("change", () => {
+
+      if(cb.checked){
+        filterState.categories.add(cb.value);
+      }else{
+        filterState.categories.delete(cb.value);
+      }
+
+      syncSidebarFromState();
+      applyFilters();
+
+    });
+
+  });
+
+  dropdown.querySelectorAll('input[name="chipCultivo"]').forEach(r => {
+
+    r.addEventListener("change", () => {
+      filterState.cultivo = r.value;
+      syncSidebarFromState();
+      applyFilters();
+    });
+
+  });
+
+  const chipCertified =
+    dropdown.querySelector("#chipCertified");
+
+  if(chipCertified){
+
+    chipCertified.addEventListener("change", (e) => {
+      filterState.certified = e.target.checked;
+      syncSidebarFromState();
+      applyFilters();
+    });
+
+  }
+
+  dropdown.querySelectorAll('input[name="chipDistance"]').forEach(r => {
+
+    r.addEventListener("change", () => {
+      filterState.distance = r.value;
+      syncSidebarFromState();
+      applyFilters();
+    });
+
+  });
+
+}
+
+
+document.querySelectorAll(".filter-chip").forEach(chip => {
+
+  chip.addEventListener("click", (e) => {
+
+    e.stopPropagation();
+
+    const dropdown =
+      document.getElementById("chipDropdown");
+
+    const alreadyOpenForThisChip =
+      dropdown.classList.contains("active") &&
+      dropdown.dataset.openFor === chip.dataset.filter;
+
+    if(alreadyOpenForThisChip){
+      dropdown.classList.remove("active");
+      return;
+    }
+
+    dropdown.dataset.openFor = chip.dataset.filter;
+    openChipDropdown(chip);
+
+  });
+
+});
+
+
+// fecha o painel ao clicar fora dele
+document.addEventListener("click", (e) => {
+
+  const dropdown =
+    document.getElementById("chipDropdown");
+
+  if(!dropdown.contains(e.target)){
+    dropdown.classList.remove("active");
+  }
+
+});
 
 
 /* ================= CARRINHO ================= */
@@ -2157,13 +3072,15 @@ document
   );
 
 
-/* ================= BOTÃO LOGIN ================= */
+/* ================= BOTÃO ENTRAR/CADASTRO ================= */
 
 document
-  .querySelector(".btn-signin")
+  .getElementById("signinBtn")
   .addEventListener(
     "click",
     () => {
+
+      switchAuthTab("entrar");
 
       openModal("loginModal");
 
@@ -2231,39 +3148,62 @@ document
     "input",
     (e) => {
 
-      const q =
-        e.target.value
-          .trim()
-          .toLowerCase();
+      filterState.search =
+        e.target.value.trim().toLowerCase();
 
-
-      const filtered =
-        q
-          ? ALL_PRODUCTS.filter(
-              p =>
-                p.name
-                  .toLowerCase()
-                  .includes(q) ||
-
-                p.farmer
-                  .toLowerCase()
-                  .includes(q) ||
-
-                p.origin
-                  .toLowerCase()
-                  .includes(q)
-            )
-
-          : ALL_PRODUCTS;
-
-
-      render(filtered);
+      applyFilters();
 
     }
   );
 
 
-/* ================= LOGIN ================= */
+/* =========================================================
+   ENTRAR / CADASTRAR
+   As duas abas moram no mesmo modal. switchAuthTab() só
+   troca qual formulário fica visível e qual aba fica marcada.
+   ========================================================= */
+
+function switchAuthTab(tab){
+
+  const isEntrar = tab === "entrar";
+
+  document.getElementById("tabEntrar")
+    .classList.toggle("is-active", isEntrar);
+
+  document.getElementById("tabCadastrar")
+    .classList.toggle("is-active", !isEntrar);
+
+  document.getElementById("loginForm")
+    .style.display = isEntrar ? "block" : "none";
+
+  document.getElementById("registerForm")
+    .style.display = isEntrar ? "none" : "block";
+
+  document.getElementById("authModalTitle")
+    .textContent = isEntrar ? "👤 Entrar" : "📝 Criar conta";
+
+}
+
+
+/* Atualiza o texto do botão no cabeçalho: mostra o primeiro
+   nome de quem está logado, ou "Entrar/Cadastro" se ninguém
+   estiver logado. */
+function updateSigninButton(){
+
+  const user =
+    JSON.parse(
+      localStorage.getItem("ecoConectaUser") || "null"
+    );
+
+  document.getElementById("signinBtnLabel").textContent =
+    user && user.firstName
+      ? user.firstName
+      : "Entrar/Cadastro";
+
+}
+
+
+/* -------- Formulário Entrar -------- */
 
 document
   .getElementById("loginForm")
@@ -2280,17 +3220,81 @@ document
           .value;
 
 
+      // Se já existir um cadastro salvo com esse e-mail,
+      // usamos o nome dele; senão, guardamos só o e-mail.
+      const stored =
+        JSON.parse(
+          localStorage.getItem("ecoConectaUser") || "null"
+        );
+
+      const user =
+        stored && stored.email === email
+          ? stored
+          : { email };
+
       localStorage.setItem(
         "ecoConectaUser",
-        email
+        JSON.stringify(user)
       );
 
+      updateSigninButton();
 
       closeModal("loginModal");
 
-
       alert(
         "Login realizado com sucesso! 🌱"
+      );
+
+    }
+  );
+
+
+/* -------- Formulário Cadastrar -------- */
+
+document
+  .getElementById("registerForm")
+  .addEventListener(
+    "submit",
+    (e) => {
+
+      e.preventDefault();
+
+
+      const user = {
+
+        firstName:
+          document.getElementById("registerFirstName").value.trim(),
+
+        lastName:
+          document.getElementById("registerLastName").value.trim(),
+
+        birthdate:
+          document.getElementById("registerBirthdate").value,
+
+        email:
+          document.getElementById("registerEmail").value,
+
+        password:
+          document.getElementById("registerPassword").value
+
+      };
+
+
+      localStorage.setItem(
+        "ecoConectaUser",
+        JSON.stringify(user)
+      );
+
+
+      updateSigninButton();
+
+      closeModal("loginModal");
+
+      e.target.reset();
+
+
+      alert(
+        `Cadastro realizado com sucesso! Bem-vindo(a), ${user.firstName}! 🌱`
       );
 
     }
@@ -2468,11 +3472,15 @@ document
 
 /* ================= INICIALIZAÇÃO ================= */
 
+renderSidebarCategories();
+
 render(ALL_PRODUCTS);
 
 updateCartBadge();
 
 renderCart();
+
+updateSigninButton();
 
 
 </script>
