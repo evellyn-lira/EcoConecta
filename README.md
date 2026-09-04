@@ -114,7 +114,8 @@ A ser definido pela equipe.
 > As imagens do sistema devem ser inseridas nesta seção, preferencialmente em uma pasta `docs/screenshots` ou `assets/images` na raiz do projeto, referenciando-as em Markdown da seguinte forma:
 >
 > ```markdown
-> ![Descrição da tela](docs/screenshots/nome-da-imagem.png)
+> ![Descrição da tela](docs/screenshots/nome-da-imagem.png)<img width="1600" height="852" alt="image" src="https://github.com/user-attachments/assets/213f7431-9b1f-4361-b54a-08f6e563f7d3" />
+
 > ```
 
 A ser definido pela equipe.
