@@ -51,17 +51,17 @@ Conectar diretamente a produção agrícola familiar ao consumidor final, fortal
 
 ---
 
-![Página de login](a1eb3433-669c-4e98-b541-8211a6f6e7c8.jpg)
+![Página de login](Fotos/Home.jpeg)
 | **Página Home**
 
 ---
 
-![Home do projeto](fb10643e-8951-49d8-9960-e841d6b5155d.jpg)
+![Home do projeto](Fotos/Login.jpeg)
 | **Página de Login**
 
 ---
 
-![Página de cadastro](5abdbf2b-57f4-4050-8f05-87873b43c4a8.jpg)
+![Página de cadastro](Fotos/Cadastro.jpeg)
 |**Página de Cadastro**
 
 ---
