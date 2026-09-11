@@ -2,7 +2,7 @@
 
 Plataforma web para conectar pequenos produtores rurais e agricultores familiares diretamente aos consumidores finais.
 
-![Logo do projeto](Fotos/Cadastro.jpeg) 
+![Logo do projeto](Fotos/Logo.jpeg) 
 ---
 
 ## Identificação Acadêmica
