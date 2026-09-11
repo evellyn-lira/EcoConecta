@@ -1,7 +1,7 @@
 # Code Horizon
 
 Plataforma web para conectar pequenos produtores rurais e agricultores familiares diretamente aos consumidores finais.
-
+![Logo do projeto](feb636b6-0078-4447-bd82-18ae93cabbe3.jpg)
 ---
 
 ## Identificação Acadêmica
@@ -114,7 +114,7 @@ A ser definido pela equipe.
 > As imagens do sistema devem ser inseridas nesta seção, preferencialmente em uma pasta `docs/screenshots` ou `assets/images` na raiz do projeto, referenciando-as em Markdown da seguinte forma:
 >
 > ```markdown
-> ![Descrição da tela](docs/screenshots/nome-da-imagem.png)<img width="1600" height="852" alt="image" src="https://github.com/user-attachments/assets/213f7431-9b1f-4361-b54a-08f6e563f7d3" />
+> ![Home](docs/screenshots/ fb10643e-8951-49d8-9960-e841d6b5155d.jpg)<img width="1600" height="852" alt="image" src="https://github.com/user-attachments/assets/213f7431-9b1f-4361-b54a-08f6e563f7d3" />
 
 > ```
 
