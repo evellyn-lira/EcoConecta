@@ -1,6 +1,7 @@
 # Code Horizon
 
 Plataforma web para conectar pequenos produtores rurais e agricultores familiares diretamente aos consumidores finais.
+
 ![Logo do projeto](feb636b6-0078-4447-bd82-18ae93cabbe3.jpg)
 ---
 
@@ -49,6 +50,9 @@ Conectar diretamente a produção agrícola familiar ao consumidor final, fortal
 - **Gestão de Compras:** Carrinho, checkout simplificado e acompanhamento de pedidos.
 
 ---
+![Home do projeto](fb10643e-8951-49d8-9960-e841d6b5155d.jpg)
+![Página de login](a1eb3433-669c-4e98-b541-8211a6f6e7c8.jpg)
+![Página de cadastro](5abdbf2b-57f4-4050-8f05-87873b43c4a8.jpg)
 
 ## Tecnologias Utilizadas
 
@@ -108,15 +112,6 @@ A ser definido pela equipe.
 A ser definido pela equipe.
 
 ---
-
-## Capturas de Tela
-
-> As imagens do sistema devem ser inseridas nesta seção, preferencialmente em uma pasta `docs/screenshots` ou `assets/images` na raiz do projeto, referenciando-as em Markdown da seguinte forma:
->
-> ```markdown
-> ![Home](docs/screenshots/ fb10643e-8951-49d8-9960-e841d6b5155d.jpg)<img width="1600" height="852" alt="image" src="https://github.com/user-attachments/assets/213f7431-9b1f-4361-b54a-08f6e563f7d3" />
-
-> ```
 
 A ser definido pela equipe.
 
