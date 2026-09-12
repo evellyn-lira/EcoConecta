@@ -1065,6 +1065,64 @@ footer.site-footer{
   }
 }
 
+
+/* ================= MELHORIAS ECOCONECTA ================= */
+.section-heading-row{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+.section-kicker{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--color-primary);margin:0 0 .35rem}
+.section-subtitle{margin:.25rem 0 0;color:var(--color-muted-foreground);font-size:.9rem;line-height:1.5}
+.season-section{margin:0 auto 4rem}
+.season-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem}
+@media(min-width:640px){.season-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.season-grid{grid-template-columns:repeat(4,1fr)}}
+.season-card{background:#fff;border:1px solid var(--color-border);border-radius:1rem;padding:1rem;display:flex;gap:.8rem;align-items:center}
+.season-card img{width:64px;height:64px;border-radius:.75rem;object-fit:cover}
+.season-card strong{display:block;font-size:.9rem}
+.season-card small{display:block;color:var(--color-muted-foreground);margin-top:.2rem}
+.season-card button{margin-top:.45rem;color:var(--color-primary);font-size:.75rem;font-weight:700}
+.profile-link{margin-top:.45rem;color:var(--color-primary);font-size:.75rem;font-weight:700;text-align:left}
+.stock-note{font-size:.72rem;margin-top:.45rem;color:var(--color-muted-foreground)}
+.stock-note.out{color:#a34d4d;font-weight:600}
+.impact-box{background:linear-gradient(135deg,#edf8f0,#f8fbf2);border:1px solid #cfe6d3;border-radius:1rem;padding:1rem;margin:1rem 0}
+.impact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem}
+.impact-metric{background:#fff;border-radius:.75rem;padding:.75rem;border:1px solid #dfeadf}
+.impact-metric span{display:block;font-size:.72rem;color:var(--color-muted-foreground)}
+.impact-metric strong{display:block;font-size:1.1rem;color:var(--color-primary);margin-top:.15rem}
+.methodology{font-size:.75rem;color:var(--color-muted-foreground);line-height:1.5;margin:.75rem 0 0}
+.producer-group{margin:1rem 0;border:1px solid var(--color-border);border-radius:.85rem;padding:.8rem;background:#fff}
+.producer-group-header{display:flex;justify-content:space-between;gap:.5rem;font-weight:700;font-size:.82rem}
+.producer-group small{color:var(--color-muted-foreground)}
+.delivery-options{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1rem}
+.delivery-option{border:1px solid var(--color-border);border-radius:.75rem;padding:.8rem;cursor:pointer}
+.delivery-option:has(input:checked){border-color:var(--color-primary);background:#f2faf4}
+.delivery-option input{margin-right:.4rem}
+.hidden{display:none!important}
+.pickup-box{background:var(--color-muted);border-radius:.75rem;padding:.85rem;margin-bottom:1rem}
+.pix-box{border:1px solid var(--color-border);border-radius:.9rem;padding:1rem;text-align:center;margin-top:1rem;background:#fbfffb}
+.fake-qr{width:170px;height:170px;margin:.5rem auto 1rem;background:
+repeating-linear-gradient(0deg,#1a291a 0 5px,#fff 5px 10px),
+repeating-linear-gradient(90deg,transparent 0 7px,rgba(255,255,255,.8) 7px 12px);
+border:10px solid #fff;box-shadow:0 0 0 1px var(--color-border);position:relative;overflow:hidden}
+.fake-qr:before,.fake-qr:after{content:"";position:absolute;width:42px;height:42px;border:7px solid #1a291a;background:#fff;box-shadow:inset 0 0 0 7px #1a291a}
+.fake-qr:before{top:5px;left:5px}.fake-qr:after{bottom:5px;right:5px}
+.pix-key{display:flex;gap:.5rem;align-items:center}.pix-key input{flex:1;background:#fff}
+.btn-secondary{width:100%;padding:.7rem;border:1px solid var(--color-border);border-radius:.7rem;font-weight:600;color:var(--color-primary);margin-top:.5rem}
+.inline-error{padding:.7rem;border-radius:.65rem;background:#fff0f0;color:#9b4141;font-size:.8rem;margin-bottom:1rem}
+.inline-success{padding:.7rem;border-radius:.65rem;background:#eefaf1;color:var(--color-primary);font-size:.8rem;margin-bottom:1rem}
+.loading-state{padding:2rem;text-align:center;color:var(--color-muted-foreground)}
+.profile-cover{height:130px;background:linear-gradient(135deg,var(--color-primary),#74c69d);border-radius:1rem;margin-bottom:-35px}
+.profile-head{display:flex;align-items:end;gap:1rem;padding:0 1rem;margin-bottom:1rem}
+.profile-avatar{width:72px;height:72px;border-radius:50%;border:4px solid #fff;object-fit:cover;background:var(--color-muted)}
+.profile-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
+.review-card{border-top:1px solid var(--color-border);padding:.75rem 0}
+.review-card strong{font-size:.82rem}.review-card p{font-size:.8rem;color:var(--color-muted-foreground);margin:.3rem 0 0}
+.order-final{background:var(--color-muted);padding:1rem;border-radius:.8rem;text-align:left;margin:1rem 0}
+.order-final div{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;margin:.35rem 0}
+@media(max-width:639px){
+ .section-heading-row{align-items:start;flex-direction:column}
+ .delivery-options,.impact-grid{grid-template-columns:1fr}
+ .pix-key{flex-direction:column;align-items:stretch}
+}
+
 </style>
 
 </head>
@@ -1224,7 +1282,19 @@ footer.site-footer{
 
   </section>
 
-  <section id="vitrine" class="catalog-section container">
+  
+<section class="season-section container" id="safras">
+  <div class="section-heading-row">
+    <div>
+      <p class="section-kicker">🌱 Produção da semana</p>
+      <h2 class="catalog-title" style="margin-bottom:.25rem;">Safras da Semana</h2>
+      <p class="section-subtitle">Produtos em destaque por estarem na safra e com disponibilidade simulada.</p><button class="btn-secondary" style="width:auto;" onclick="openWeeklyBasket()">🥬 Montar cesta semanal</button>
+    </div>
+  </div>
+  <div id="seasonGrid" class="season-grid"></div>
+</section>
+
+<section id="vitrine" class="catalog-section container">
 
     <h2 class="catalog-title">
       Catálogo de Produtos
@@ -1308,7 +1378,7 @@ footer.site-footer{
       </details>
 
       <!-- ============ GRADE DE PRODUTOS ============ -->
-      <div id="productGrid" class="product-grid"></div>
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
 
     </div>
 
@@ -1542,273 +1612,163 @@ footer.site-footer{
 
 <!-- ================= PAGAMENTO ================= -->
 
-<div id="paymentModal" class="modal-overlay">
-
+<div id="paymentModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
   <div class="modal modal-large">
-
     <div class="modal-header">
-
-      <h2 class="modal-title">
-        💳 Finalizar compra
-      </h2>
-
-      <button
-        class="close-modal"
-        onclick="closeModal('paymentModal')"
-      >
-        ×
-      </button>
-
+      <h2 class="modal-title" id="paymentTitle">💳 Finalizar compra</h2>
+      <button class="close-modal" type="button" onclick="closeModal('paymentModal')" aria-label="Fechar">×</button>
     </div>
 
+    <div id="checkoutError" class="inline-error hidden" role="alert"></div>
 
     <div class="order-summary">
-
-      <div class="order-summary-row">
-        <span>Produtos</span>
-        <strong id="paymentProducts">
-          R$ 0,00
-        </strong>
-      </div>
-
-      <div class="order-summary-row">
-        <span>Frete</span>
-        <strong>Grátis</strong>
-      </div>
-
-      <div class="order-summary-row">
-        <span>Total</span>
-        <strong id="paymentTotal">
-          R$ 0,00
-        </strong>
-      </div>
-
+      <div class="order-summary-row"><span>Produtos</span><strong id="paymentProducts">R$ 0,00</strong></div>
+      <div class="order-summary-row"><span>Frete</span><strong id="paymentShipping">Grátis</strong></div>
+      <div class="order-summary-row"><span>Total</span><strong id="paymentTotal">R$ 0,00</strong></div>
     </div>
 
+    <div id="checkoutImpact" class="impact-box"></div>
 
     <form id="paymentForm">
-
       <div class="form-group">
-
-        <label>
-          Nome completo
-        </label>
-
-        <input
-          type="text"
-          id="customerName"
-          placeholder="Digite seu nome"
-          required
-        >
-
+        <label for="customerName">Nome completo</label>
+        <input type="text" id="customerName" placeholder="Digite seu nome" autocomplete="name" required>
       </div>
 
-
       <div class="form-group">
-
-        <label>
-          Endereço de entrega
-        </label>
-
-        <input
-          type="text"
-          id="customerAddress"
-          placeholder="Rua, número e bairro"
-          required
-        >
-
+        <label>Como deseja receber?</label>
+        <div class="delivery-options">
+          <label class="delivery-option">
+            <input type="radio" name="deliveryType" value="delivery" checked>
+            🚚 Entrega em domicílio
+          </label>
+          <label class="delivery-option">
+            <input type="radio" name="deliveryType" value="pickup">
+            📍 Retirada em ponto
+          </label>
+        </div>
       </div>
 
+      <div id="deliveryFields">
+        <div class="form-group">
+          <label for="customerAddress">Endereço de entrega</label>
+          <input type="text" id="customerAddress" placeholder="Rua, número e bairro" autocomplete="street-address">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customerCity">Cidade</label>
+            <input type="text" id="customerCity" placeholder="Sua cidade" autocomplete="address-level2">
+          </div>
+          <div class="form-group">
+            <label for="customerCep">CEP</label>
+            <input type="text" id="customerCep" placeholder="00000-000" inputmode="numeric" maxlength="9" autocomplete="postal-code">
+          </div>
+        </div>
+      </div>
+
+      <div id="pickupFields" class="pickup-box hidden">
+        <div class="form-group">
+          <label for="pickupPoint">Ponto de retirada</label>
+          <select id="pickupPoint"></select>
+        </div>
+      </div>
 
       <div class="form-row">
-
         <div class="form-group">
-
-          <label>
-            Cidade
-          </label>
-
-          <input
-            type="text"
-            id="customerCity"
-            placeholder="Sua cidade"
-            required
-          >
-
+          <label for="deliveryDate">Data</label>
+          <select id="deliveryDate" required></select>
         </div>
-
-
         <div class="form-group">
-
-          <label>
-            CEP
-          </label>
-
-          <input
-            type="text"
-            id="customerCep"
-            placeholder="00000-000"
-            required
-          >
-
+          <label for="deliveryTime">Horário</label>
+          <select id="deliveryTime" required>
+            <option value="08:00–10:00">08:00–10:00</option>
+            <option value="10:00–12:00">10:00–12:00</option>
+            <option value="14:00–16:00">14:00–16:00</option>
+            <option value="16:00–18:00">16:00–18:00</option>
+          </select>
         </div>
-
       </div>
-
 
       <div class="form-group">
-
-        <label>
-          Forma de pagamento
-        </label>
-
+        <label>Forma de pagamento</label>
         <div class="payment-methods">
-
-          <label class="payment-option">
-
-            <input
-              type="radio"
-              name="payment"
-              value="pix"
-              checked
-            >
-
-            <span>💚 PIX</span>
-
-          </label>
-
-
-          <label class="payment-option">
-
-            <input
-              type="radio"
-              name="payment"
-              value="card"
-            >
-
-            <span>💳 Cartão</span>
-
-          </label>
-
-
-          <label class="payment-option">
-
-            <input
-              type="radio"
-              name="payment"
-              value="boleto"
-            >
-
-            <span>📄 Boleto</span>
-
-          </label>
-
+          <label class="payment-option"><input type="radio" name="payment" value="pix" checked> 💚 PIX (simulado)</label>
+          <label class="payment-option"><input type="radio" name="payment" value="card"> 💳 Cartão (simulado)</label>
+          <label class="payment-option"><input type="radio" name="payment" value="boleto"> 📄 Boleto (simulado)</label>
         </div>
-
       </div>
 
-
-      <div id="cardFields" style="display:none;">
-
+      <div id="cardFields" class="hidden">
         <div class="form-group">
-
-          <label>
-            Número do cartão
-          </label>
-
-          <input
-            type="text"
-            placeholder="0000 0000 0000 0000"
-            maxlength="19"
-          >
-
+          <label for="cardNumber">Número do cartão (somente demonstração)</label>
+          <input id="cardNumber" type="text" inputmode="numeric" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="off">
         </div>
-
-
         <div class="form-row">
-
-          <div class="form-group">
-
-            <label>
-              Validade
-            </label>
-
-            <input
-              type="text"
-              placeholder="MM/AA"
-              maxlength="5"
-            >
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label>
-              CVV
-            </label>
-
-            <input
-              type="text"
-              placeholder="123"
-              maxlength="4"
-            >
-
-          </div>
-
+          <div class="form-group"><label for="cardExpiry">Validade</label><input id="cardExpiry" type="text" placeholder="MM/AA" maxlength="5" autocomplete="off"></div>
+          <div class="form-group"><label for="cardCvv">CVV</label><input id="cardCvv" type="password" placeholder="123" maxlength="4" autocomplete="off"></div>
         </div>
-
       </div>
 
+      <div id="pixFields" class="pix-box">
+        <strong>PIX fictício para demonstração</strong>
+        <div class="fake-qr" aria-label="QR Code fictício"></div>
+        <div class="pix-key">
+          <input id="pixKey" type="text" value="ecoconecta.demo@pix.exemplo" readonly aria-label="Chave PIX fictícia">
+          <button type="button" class="btn-secondary" style="width:auto;margin:0;" onclick="copyPixKey()">Copiar chave</button>
+        </div>
+        <p class="methodology">Este QR Code e esta chave são fictícios e não realizam pagamentos reais.</p>
+      </div>
 
-      <button
-        class="modal-button"
-        type="submit"
-      >
-        Confirmar pedido
-      </button>
+      <div class="order-summary" style="margin-top:1rem;">
+        <strong>Resumo por produtor</strong>
+        <div id="checkoutProducerSummary"></div>
+      </div>
 
+      <button class="modal-button" type="submit">Confirmar pedido simulado</button>
     </form>
-
   </div>
-
 </div>
 
 <!-- ================= PEDIDO CONFIRMADO ================= -->
 
-<div id="successModal" class="modal-overlay">
-
-  <div class="modal">
-
+<div id="successModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="modal modal-large">
     <div class="success-message">
-
-      <div class="success-icon">
-        ✓
-      </div>
-
-      <h2 class="modal-title">
-        Pedido realizado!
-      </h2>
-
-      <p>
-        Obrigado pela sua compra. 🌱
-      </p>
-
+      <div class="success-icon">✓</div>
+      <h2 class="modal-title" id="successTitle">Pedido realizado!</h2>
+      <p>Obrigado pela sua compra. 🌱</p>
+      <div id="finalOrderSummary" class="order-final"></div>
       <p style="color:var(--color-muted-foreground);font-size:.875rem;">
-        Seu pedido foi registrado com sucesso.
+        Seu pedido foi registrado como uma simulação local neste navegador.
       </p>
-
-      <button
-        class="modal-button"
-        onclick="closeModal('successModal')"
-      >
-        Voltar para a loja
-      </button>
-
+      <button class="modal-button" onclick="closeModal('successModal')">Voltar para a loja</button>
     </div>
-
   </div>
+</div>
 
+
+<!-- ================= PERFIL DO PRODUTOR ================= -->
+<div id="producerModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="producerTitle">
+  <div class="modal modal-large">
+    <div class="modal-header">
+      <h2 class="modal-title" id="producerTitle">Perfil do produtor</h2>
+      <button class="close-modal" onclick="closeModal('producerModal')" aria-label="Fechar">×</button>
+    </div>
+    <div id="producerProfile"></div>
+  </div>
+</div>
+
+<!-- ================= CESTA SEMANAL ================= -->
+<div id="basketModal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 class="modal-title">🥬 Cesta da Semana</h2>
+      <button class="close-modal" onclick="closeModal('basketModal')" aria-label="Fechar">×</button>
+    </div>
+    <p>Uma cesta demonstrativa com produtos da safra. Você pode adicioná-la ao carrinho com desconto simulado.</p>
+    <div id="basketPreview" class="order-summary"></div>
+    <button class="modal-button" onclick="addWeeklyBasket()">Adicionar cesta ao carrinho</button>
+  </div>
 </div>
 
 <!-- ================= RODAPÉ ================= -->
@@ -3203,53 +3163,8 @@ function updateSigninButton(){
 }
 
 
-/* -------- Formulário Entrar -------- */
-
-document
-  .getElementById("loginForm")
-  .addEventListener(
-    "submit",
-    (e) => {
-
-      e.preventDefault();
-
-
-      const email =
-        document
-          .getElementById("loginEmail")
-          .value;
-
-
-      // Se já existir um cadastro salvo com esse e-mail,
-      // usamos o nome dele; senão, guardamos só o e-mail.
-      const stored =
-        JSON.parse(
-          localStorage.getItem("ecoConectaUser") || "null"
-        );
-
-      const user =
-        stored && stored.email === email
-          ? stored
-          : { email };
-
-      localStorage.setItem(
-        "ecoConectaUser",
-        JSON.stringify(user)
-      );
-
-      updateSigninButton();
-
-      closeModal("loginModal");
-
-      alert(
-        "Login realizado com sucesso! 🌱"
-      );
-
-    }
-  );
-
-
-/* -------- Formulário Cadastrar -------- */
+/* -------- Formulário Entrar/Cadastrar --------
+   Implementação final definida na camada de melhorias abaixo. */
 
 document
   .getElementById("registerForm")
@@ -3376,73 +3291,7 @@ document
 
 
 /* ================= FINALIZAR PEDIDO ================= */
-
-document
-  .getElementById("paymentForm")
-  .addEventListener(
-    "submit",
-    (e) => {
-
-      e.preventDefault();
-
-
-      const order = {
-
-        customer:
-          document.getElementById(
-            "customerName"
-          ).value,
-
-        address:
-          document.getElementById(
-            "customerAddress"
-          ).value,
-
-        city:
-          document.getElementById(
-            "customerCity"
-          ).value,
-
-        cep:
-          document.getElementById(
-            "customerCep"
-          ).value,
-
-        payment:
-          document.querySelector(
-            'input[name="payment"]:checked'
-          ).value,
-
-        products:cart,
-
-        total:getCartTotal(),
-
-        date:new Date().toISOString()
-
-      };
-
-
-      localStorage.setItem(
-        "lastOrder",
-        JSON.stringify(order)
-      );
-
-
-      cart = [];
-
-
-      saveCart();
-      updateCartBadge();
-      renderCart();
-
-
-      closeModal("paymentModal");
-
-      openModal("successModal");
-
-    }
-  );
-
+/* Implementação final definida na camada de melhorias abaixo. */
 
 /* ================= FECHAR CLICANDO FORA ================= */
 
@@ -3470,11 +3319,431 @@ document
   );
 
 
+
+/* =========================================================
+   CAMADA DE MOCKS / REQUISITOS DE FRONT-END
+   Dados locais equivalentes a producers.json, products.json
+   e pickup-points.json para esta etapa sem back-end.
+   ========================================================= */
+
+const PRODUCT_META = {
+  1:{season:"Setembro–Dezembro",inSeason:true,stock:18,harvest:"Safra atual"},
+  2:{season:"Maio–Dezembro",inSeason:true,stock:24,harvest:"Safra atual"},
+  3:{season:"Abril–Outubro",inSeason:true,stock:12,harvest:"Safra atual"},
+  4:{season:"Ano todo",inSeason:true,stock:8,harvest:"Produção contínua"},
+  5:{season:"Março–Agosto",inSeason:false,stock:0,harvest:"Fora de safra"},
+  6:{season:"Ano todo",inSeason:true,stock:20,harvest:"Disponível"},
+  7:{season:"Ano todo",inSeason:true,stock:15,harvest:"Disponível"},
+  8:{season:"Janeiro–Maio",inSeason:false,stock:0,harvest:"Fora de safra"},
+  9:{season:"Maio–Agosto",inSeason:false,stock:6,harvest:"Estoque limitado"},
+  10:{season:"Ano todo",inSeason:true,stock:14,harvest:"Disponível"},
+  11:{season:"Março–Agosto",inSeason:false,stock:0,harvest:"Fora de safra"},
+  12:{season:"Janeiro–Junho",inSeason:false,stock:5,harvest:"Estoque limitado"},
+  13:{season:"Agosto–Janeiro",inSeason:true,stock:16,harvest:"Safra atual"},
+  14:{season:"Agosto–Dezembro",inSeason:true,stock:10,harvest:"Safra atual"},
+  15:{season:"Ano todo",inSeason:true,stock:20,harvest:"Disponível"},
+  16:{season:"Setembro–Abril",inSeason:true,stock:13,harvest:"Safra atual"},
+  17:{season:"Abril–Dezembro",inSeason:true,stock:11,harvest:"Safra atual"},
+  18:{season:"Agosto–Fevereiro",inSeason:true,stock:17,harvest:"Safra atual"}
+};
+
+const PRODUCERS = {
+  "Família Rossi": {
+    location:"Serra Gaúcha, RS",methods:"Manejo sustentável e redução de insumos químicos",
+    story:"Pequena produção familiar dedicada a hortaliças frescas e venda direta.",
+    badges:["Produtor local","Rastreabilidade"],
+    photos:[
+      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80",
+      "https://images.unsplash.com/photo-1592419044706-39796d40f98c?w=700&q=80",
+      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700&q=80"
+    ],
+    reviews:[["Marina","5.0","Produto fresco e muito bem embalado."],["Carlos","4.8","Gostei de conhecer a origem."]]
+  },
+  "Sítio Verde Vivo": {
+    location:"Campinas, SP",methods:"Cultivo orgânico certificado e compostagem",
+    story:"Sítio familiar que trabalha com hortaliças orgânicas e entrega curta.",
+    badges:["Orgânico","Certificado"],
+    photos:["https://images.unsplash.com/photo-1560493676-04071c5f467b?w=700&q=80","https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=700&q=80"],
+    reviews:[["Ana","4.9","Cenouras muito frescas."],["João","4.7","Boa qualidade e rastreabilidade."]]
+  },
+  "Família Tanaka": {
+    location:"Atibaia, SP",methods:"Cultivo integrado e controle biológico",
+    story:"Família produtora de frutas com foco em qualidade, sazonalidade e venda direta.",
+    badges:["Produtor familiar","Safra"],
+    photos:["https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=700&q=80","https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=700&q=80"],
+    reviews:[["Luiza","5.0","Morango excelente."],["Pedro","4.8","Muito saboroso."]]
+  },
+  "Apiário Cerrado": {
+    location:"Chapada Diamantina, BA",methods:"Apicultura de baixo impacto e manejo responsável",
+    story:"Apiário familiar com produção de mel e valorização da biodiversidade local.",
+    badges:["Rastreável","Biodiversidade"],
+    photos:["https://images.unsplash.com/photo-1471943038886-87c772c2fcb1?w=700&q=80","https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=700&q=80"],
+    reviews:[["Bia","5.0","Mel muito saboroso."],["Rafael","5.0","Gostei da história do produtor."]]
+  }
+};
+Object.keys(PRODUCERS).forEach(name=>{
+  if(!PRODUCERS[name]) return;
+});
+const DEFAULT_PRODUCER = {
+  location:"Brasil",methods:"Boas práticas agrícolas e produção familiar",
+  story:"Produtor participante da rede Code Horizon, com venda direta e rastreabilidade simulada.",
+  badges:["Produtor local"],photos:["https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=80"],
+  reviews:[["Comprador","4.8","Boa experiência de compra."]]
+};
+
+const PICKUP_POINTS = [
+  {id:"sp-centro",name:"Ponto Verde — Centro",city:"São Paulo, SP",address:"Praça da República, 100"},
+  {id:"campinas",name:"Feira Sustentável Campinas",city:"Campinas, SP",address:"Av. Norte-Sul, 500"},
+  {id:"sorocaba",name:"Mercado Local Sorocaba",city:"Sorocaba, SP",address:"Rua das Flores, 220"},
+  {id:"curitiba",name:"Hub Agro Curitiba",city:"Curitiba, PR",address:"Rua das Araucárias, 80"}
+];
+
+function metaFor(p){ return PRODUCT_META[p.id] || {season:"A consultar",inSeason:true,stock:10,harvest:"Disponível"}; }
+function producerFor(name){ return PRODUCERS[name] || DEFAULT_PRODUCER; }
+function isAvailable(p){ return metaFor(p).stock > 0 && metaFor(p).inSeason; }
+function getProducerGroups(items){
+  return items.reduce((groups,item)=>{
+    const p = ALL_PRODUCTS.find(x=>x.id===item.id);
+    const farmer = p?.farmer || item.farmer || "Produtor não informado";
+    (groups[farmer] ||= []).push(item);
+    return groups;
+  },{});
+}
+function getCartCarbon(){
+  return cart.reduce((sum,item)=>{
+    const p=ALL_PRODUCTS.find(x=>x.id===item.id);
+    return sum + (p?.carbon || item.carbon || 0) * item.quantity;
+  },0);
+}
+function getFamilySupport(){
+  return getCartTotal() * .85;
+}
+function showCheckoutError(msg){
+  const box=document.getElementById("checkoutError");
+  box.textContent=msg; box.classList.remove("hidden");
+}
+function clearCheckoutError(){
+  const box=document.getElementById("checkoutError");
+  box.textContent=""; box.classList.add("hidden");
+}
+
+/* ---------- Safras ---------- */
+function renderSeason(){
+  const grid=document.getElementById("seasonGrid");
+  if(!grid) return;
+  const season=ALL_PRODUCTS.filter(p=>isAvailable(p)).slice(0,8);
+  grid.innerHTML=season.map(p=>{
+    const m=metaFor(p);
+    return `<article class="season-card">
+      <img src="${p.image}" alt="${p.name}" loading="lazy">
+      <div>
+        <strong>${p.name}</strong>
+        <small>${m.harvest} · ${m.stock} un.</small>
+        <button type="button" onclick="addToCart(${p.id})">+ Adicionar</button>
+      </div>
+    </article>`;
+  }).join("");
+}
+
+/* ---------- Card de produto melhorado ---------- */
+function productCardHTML(p){
+  const m=metaFor(p);
+  const badge=p.badge ? `<span class="badge ${BADGE_CLASS[p.badgeColor] || "badge-accent"}">${p.badge}</span>` : "";
+  const bio=p.organic ? `<span class="badge-bio">${leafIconSVG}<span>Bio</span></span>` : "";
+  const certifiedTag=p.certified ? `<span class="tag tag-certified">✓ Certificado</span>` : "";
+  const unavailable=!isAvailable(p);
+  const status=unavailable
+    ? `<div class="stock-note out">⚠ ${m.harvest}${m.stock===0 ? " · sem estoque" : ""}</div>`
+    : `<div class="stock-note">✓ ${m.stock} disponíveis · ${m.harvest}</div>`;
+  return `<article class="product-card" data-id="${p.id}">
+    <div class="product-media">
+      <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.opacity='.35'">
+      ${badge}${bio}
+    </div>
+    <div class="product-body">
+      <p class="product-category">${p.category}</p>
+      <h3 class="product-name">${p.name}</h3>
+      <p class="product-origin">${p.farmer} · ${p.origin}</p>
+      <div class="product-rating">${starIconSVG}<span class="rating-num">${p.rating.toFixed(1)}</span><span class="rating-count">(${p.reviews})</span></div>
+      <div class="product-tags">${certifiedTag}<span class="tag tag-distance">📍 ${p.distance} km</span></div>
+      <div class="product-carbon">🌱 <span>${p.carbon} kg CO₂ economizado/un.</span></div>
+      ${status}
+      <button type="button" class="profile-link" onclick="openProducerProfile('${p.farmer.replace(/'/g,"\\'")}')">👨‍🌾 Ver perfil do produtor</button>
+      <div class="product-footer">
+        <div class="product-price"><span class="amount">${fmtCurrency(p.price)}</span><span class="unit">/${p.unit}</span></div>
+        <button type="button" class="btn-add ${unavailable ? "disabled" : ""}" data-id="${p.id}" ${unavailable ? "disabled" : ""}>
+          ${unavailable ? "Indisponível" : "+ Adicionar"}
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function render(products){
+  const grid=document.getElementById("productGrid");
+  document.getElementById("productCount").textContent=products.length;
+  if(!products.length){
+    grid.innerHTML=`<div class="no-results"><div style="font-size:2rem;">🌱</div><p>Nenhum produto encontrado com esses filtros.</p><p style="font-size:.8rem;">Tente outra categoria, região ou termo de busca.</p></div>`;
+    return;
+  }
+  grid.innerHTML=products.map(productCardHTML).join("");
+}
+
+/* ---------- Carrinho por produtor + impacto ---------- */
+function addToCart(productId){
+  const product=ALL_PRODUCTS.find(p=>p.id===productId);
+  if(!product || !isAvailable(product)){
+    alert("Este produto está fora de safra ou sem estoque no momento.");
+    return;
+  }
+  const m=metaFor(product);
+  const existing=cart.find(item=>item.id===productId);
+  if(existing){
+    if(existing.quantity>=m.stock){ alert(`Estoque máximo simulado: ${m.stock} unidade(s).`); return; }
+    existing.quantity++;
+  }else{
+    cart.push({id:product.id,name:product.name,price:product.price,unit:product.unit,image:product.image,quantity:1,farmer:product.farmer,carbon:product.carbon});
+  }
+  saveCart(); updateCartBadge(); renderCart();
+}
+function changeQuantity(productId,change){
+  const item=cart.find(item=>item.id===productId);
+  if(!item) return;
+  const product=ALL_PRODUCTS.find(p=>p.id===productId), max=metaFor(product).stock;
+  item.quantity += change;
+  if(item.quantity>max) item.quantity=max;
+  if(item.quantity<=0) cart=cart.filter(x=>x.id!==productId);
+  saveCart(); updateCartBadge(); renderCart();
+}
+function renderCart(){
+  const container=document.getElementById("cartItems"), total=document.getElementById("cartTotal");
+  if(!cart.length){
+    container.innerHTML=`<div class="empty-cart"><div style="font-size:2.5rem;">🛒</div><p>Seu carrinho está vazio.</p><p style="font-size:.8rem;">Adicione produtos para começar sua compra.</p></div>`;
+    total.textContent=fmtCurrency(0); return;
+  }
+  const groups=getProducerGroups(cart);
+  container.innerHTML=Object.entries(groups).map(([farmer,items])=>{
+    const subtotal=items.reduce((s,i)=>s+i.price*i.quantity,0);
+    return `<div class="producer-group">
+      <div class="producer-group-header"><span>👨‍🌾 ${farmer}</span><span>${fmtCurrency(subtotal)}</span></div>
+      <small>Resumo por produtor</small>
+      ${items.map(item=>`<div class="cart-item">
+        <img src="${item.image}" alt="${item.name}">
+        <div class="cart-item-info">
+          <p class="cart-item-name">${item.name}</p>
+          <div class="cart-item-price">${fmtCurrency(item.price)} / ${item.unit}</div>
+          <div class="quantity-controls">
+            <button type="button" aria-label="Diminuir quantidade" onclick="changeQuantity(${item.id},-1)">−</button>
+            <strong>${item.quantity}</strong>
+            <button type="button" aria-label="Aumentar quantidade" onclick="changeQuantity(${item.id},1)">+</button>
+          </div>
+          <button type="button" class="remove-item" onclick="removeFromCart(${item.id})">Remover</button>
+        </div>
+      </div>`).join("")}
+    </div>`;
+  }).join("");
+  total.textContent=fmtCurrency(getCartTotal());
+  const impact=document.getElementById("cartImpactBox");
+  if(impact) impact.innerHTML=impactHTML();
+}
+function impactHTML(){
+  return `<div class="impact-box" id="cartImpactBox">
+    <strong>🌱 Impacto da sua cesta</strong>
+    <div class="impact-grid">
+      <div class="impact-metric"><span>CO₂ economizado</span><strong>${getCartCarbon().toFixed(1)} kg</strong></div>
+      <div class="impact-metric"><span>Apoio à economia familiar</span><strong>${fmtCurrency(getFamilySupport())}</strong></div>
+    </div>
+    <p class="methodology">Simulação educativa: CO₂ = soma do indicador fictício de cada unidade × quantidade. O apoio familiar representa 85% do subtotal como indicador visual, não uma taxa real.</p>
+  </div>`;
+}
+
+/* Injeta o impacto no carrinho sem alterar a estrutura original */
+const originalCartItems = document.getElementById("cartItems");
+if(originalCartItems && !document.getElementById("cartImpactBox")){
+  const impact=document.createElement("div"); impact.id="cartImpactBox";
+  originalCartItems.parentNode.insertBefore(impact,originalCartItems.nextSibling);
+}
+
+/* ---------- Perfil do produtor ---------- */
+function openProducerProfile(farmer){
+  const p=producerFor(farmer);
+  const products=ALL_PRODUCTS.filter(x=>x.farmer===farmer);
+  document.getElementById("producerTitle").textContent=`👨‍🌾 ${farmer}`;
+  document.getElementById("producerProfile").innerHTML=`
+    <div class="profile-cover"></div>
+    <div class="profile-head">
+      <img class="profile-avatar" src="${p.photos[0]}" alt="Propriedade de ${farmer}">
+      <div><strong>${farmer}</strong><div style="font-size:.8rem;color:var(--color-muted-foreground);">📍 ${p.location}</div></div>
+    </div>
+    <div class="profile-badges">${p.badges.map(b=>`<span class="tag tag-certified">✓ ${b}</span>`).join("")}</div>
+    <p>${p.story}</p>
+    <p><strong>Métodos de cultivo:</strong> ${p.methods}</p>
+    <h3 style="font-family:var(--font-heading);">📷 Galeria da propriedade</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">${p.photos.map((img,i)=>`<img src="${img}" alt="Foto ${i+1} da propriedade" style="width:100%;height:100px;object-fit:cover;border-radius:.6rem;">`).join("")}</div>
+    <h3 style="font-family:var(--font-heading);">⭐ Avaliações de compradores</h3>
+    ${p.reviews.map(r=>`<div class="review-card"><strong>${r[0]} · ⭐ ${r[1]}</strong><p>${r[2]}</p></div>`).join("")}
+    <h3 style="font-family:var(--font-heading);">Produtos vinculados</h3>
+    ${products.length?products.map(x=>`<div class="order-summary-row"><span>${x.name}</span><strong>${fmtCurrency(x.price)}</strong></div>`).join(""):"<p>Nenhum produto disponível no catálogo.</p>"}
+    <p class="methodology">Localização apresentada de forma aproximada. Dados de perfil, avaliações e rastreabilidade são mocks para demonstração.</p>`;
+  openModal("producerModal");
+}
+
+/* ---------- Cesta semanal ---------- */
+const WEEKLY_BASKET_IDS=[1,2,3,7];
+function openWeeklyBasket(){
+  const items=WEEKLY_BASKET_IDS.map(id=>ALL_PRODUCTS.find(p=>p.id===id)).filter(Boolean);
+  const total=items.reduce((s,p)=>s+p.price,0), discounted=total*.92;
+  document.getElementById("basketPreview").innerHTML=items.map(p=>`<div class="order-summary-row"><span>${p.name}</span><strong>${fmtCurrency(p.price)}</strong></div>`).join("")+
+    `<hr><div class="order-summary-row"><span>Subtotal</span><strong>${fmtCurrency(total)}</strong></div><div class="order-summary-row"><span>Desconto simulado (8%)</span><strong>− ${fmtCurrency(total*.08)}</strong></div><div class="order-summary-row"><strong>Total da cesta</strong><strong>${fmtCurrency(discounted)}</strong></div>`;
+  openModal("basketModal");
+}
+function addWeeklyBasket(){
+  WEEKLY_BASKET_IDS.forEach(id=>{
+    const p=ALL_PRODUCTS.find(x=>x.id===id);
+    if(p && isAvailable(p)){
+      const existing=cart.find(x=>x.id===id);
+      if(existing) existing.quantity++;
+      else cart.push({id:p.id,name:p.name,price:p.price*.92,unit:p.unit,image:p.image,quantity:1,farmer:p.farmer,carbon:p.carbon});
+    }
+  });
+  saveCart();updateCartBadge();renderCart();closeModal("basketModal");openModal("cartModal");
+}
+
+/* ---------- Checkout ---------- */
+function populateCheckout(){
+  const dateSelect=document.getElementById("deliveryDate");
+  dateSelect.innerHTML="";
+  for(let i=1;i<=7;i++){
+    const d=new Date();d.setDate(d.getDate()+i);
+    const value=d.toISOString().slice(0,10);
+    const label=d.toLocaleDateString("pt-BR",{weekday:"short",day:"2-digit",month:"2-digit"});
+    dateSelect.innerHTML+=`<option value="${value}">${label}</option>`;
+  }
+  const pickup=document.getElementById("pickupPoint");
+  pickup.innerHTML=PICKUP_POINTS.map(x=>`<option value="${x.id}">${x.name} — ${x.city}</option>`).join("");
+}
+function updateDeliveryFields(){
+  const type=document.querySelector('input[name="deliveryType"]:checked').value;
+  document.getElementById("deliveryFields").classList.toggle("hidden",type!=="delivery");
+  document.getElementById("pickupFields").classList.toggle("hidden",type!=="pickup");
+  document.getElementById("customerAddress").required=type==="delivery";
+  document.getElementById("customerCity").required=type==="delivery";
+  document.getElementById("customerCep").required=type==="delivery";
+  document.getElementById("pickupPoint").required=type==="pickup";
+  const shipping=type==="delivery" ? 7.9 : 0;
+  document.getElementById("paymentShipping").textContent=shipping ? fmtCurrency(shipping) : "Grátis";
+  document.getElementById("paymentTotal").textContent=fmtCurrency(getCartTotal()+shipping);
+}
+function renderCheckoutProducerSummary(){
+  const groups=getProducerGroups(cart);
+  document.getElementById("checkoutProducerSummary").innerHTML=Object.entries(groups).map(([farmer,items])=>{
+    const subtotal=items.reduce((s,i)=>s+i.price*i.quantity,0);
+    return `<div class="order-summary-row"><span>${farmer}</span><strong>${fmtCurrency(subtotal)}</strong></div>`;
+  }).join("");
+}
+function goToCheckout(){
+  if(!cart.length){alert("Seu carrinho está vazio.");return;}
+  clearCheckoutError(); closeModal("cartModal");
+  document.getElementById("paymentProducts").textContent=fmtCurrency(getCartTotal());
+  populateCheckout();updateDeliveryFields();renderCheckoutProducerSummary();
+  document.getElementById("checkoutImpact").innerHTML=impactHTML().replace('id="cartImpactBox"','id="checkoutImpactInner"');
+  openModal("paymentModal");
+}
+function copyPixKey(){
+  const input=document.getElementById("pixKey");
+  navigator.clipboard?.writeText(input.value).then(()=>alert("Chave PIX fictícia copiada!")).catch(()=>{input.select();document.execCommand("copy");alert("Chave PIX fictícia copiada!");});
+}
+function updatePaymentFields(){
+  const method=document.querySelector('input[name="payment"]:checked').value;
+  document.getElementById("cardFields").classList.toggle("hidden",method!=="card");
+  document.getElementById("pixFields").classList.toggle("hidden",method!=="pix");
+}
+
+/* ---------- Autenticação local demonstrativa ---------- */
+function updateSigninButton(){
+  const user=JSON.parse(localStorage.getItem("ecoConectaUser")||"null");
+  const label=document.getElementById("signinBtnLabel");
+  label.textContent=user?.firstName ? user.firstName : "Entrar/Cadastro";
+}
+function loginLocal(e){
+  e.preventDefault();
+  const email=document.getElementById("loginEmail").value.trim().toLowerCase();
+  const password=document.getElementById("loginPassword").value;
+  const stored=JSON.parse(localStorage.getItem("ecoConectaAccount")||"null");
+  if(!stored || stored.email!==email || stored.password!==password){
+    alert("Conta não encontrada ou senha incorreta. Cadastre-se primeiro nesta demonstração.");
+    return;
+  }
+  localStorage.setItem("ecoConectaUser",JSON.stringify(stored));
+  updateSigninButton();closeModal("loginModal");alert(`Login realizado com sucesso! Bem-vindo(a), ${stored.firstName}! 🌱`);
+}
+function registerLocal(e){
+  e.preventDefault();
+  const user={
+    firstName:document.getElementById("registerFirstName").value.trim(),
+    lastName:document.getElementById("registerLastName").value.trim(),
+    birthdate:document.getElementById("registerBirthdate").value,
+    email:document.getElementById("registerEmail").value.trim().toLowerCase(),
+    password:document.getElementById("registerPassword").value
+  };
+  localStorage.setItem("ecoConectaAccount",JSON.stringify(user));
+  localStorage.setItem("ecoConectaUser",JSON.stringify(user));
+  updateSigninButton();closeModal("loginModal");e.target.reset();
+  alert(`Cadastro realizado com sucesso! Bem-vindo(a), ${user.firstName}! 🌱`);
+}
+
+/* ---------- Estado e acessibilidade ---------- */
+document.querySelectorAll('input[name="deliveryType"]').forEach(r=>r.addEventListener("change",updateDeliveryFields));
+document.querySelectorAll('input[name="payment"]').forEach(r=>r.addEventListener("change",updatePaymentFields));
+document.getElementById("paymentForm").addEventListener("submit",(e)=>{
+  e.preventDefault();clearCheckoutError();
+  if(!cart.length){showCheckoutError("Seu carrinho está vazio.");return;}
+  const type=document.querySelector('input[name="deliveryType"]:checked').value;
+  if(type==="delivery" && (!document.getElementById("customerAddress").value.trim() || !document.getElementById("customerCity").value.trim() || !document.getElementById("customerCep").value.trim())){
+    showCheckoutError("Preencha o endereço, cidade e CEP para entrega.");return;
+  }
+  if(type==="pickup" && !document.getElementById("pickupPoint").value){showCheckoutError("Selecione um ponto de retirada.");return;}
+  const method=document.querySelector('input[name="payment"]:checked').value;
+  if(method==="card"){
+    const n=document.getElementById("cardNumber").value.replace(/\D/g,"");
+    if(n.length<13){showCheckoutError("Digite um número de cartão fictício válido para a demonstração.");return;}
+  }
+  const shipping=type==="delivery"?7.9:0;
+  const order={
+    id:"EC-"+Date.now().toString().slice(-8),customer:document.getElementById("customerName").value.trim(),
+    deliveryType:type,address:type==="delivery"?document.getElementById("customerAddress").value.trim():"",
+    city:type==="delivery"?document.getElementById("customerCity").value.trim():"",
+    cep:type==="delivery"?document.getElementById("customerCep").value.trim():"",
+    pickup:type==="pickup"?PICKUP_POINTS.find(x=>x.id===document.getElementById("pickupPoint").value):null,
+    schedule:{date:document.getElementById("deliveryDate").value,time:document.getElementById("deliveryTime").value},
+    payment:method,products:[...cart],subtotal:getCartTotal(),shipping,total:getCartTotal()+shipping,
+    carbon:getCartCarbon(),familySupport:getFamilySupport(),date:new Date().toISOString()
+  };
+  localStorage.setItem("lastOrder",JSON.stringify(order));
+  document.getElementById("finalOrderSummary").innerHTML=`
+    <div><span>Pedido</span><strong>${order.id}</strong></div>
+    <div><span>Total</span><strong>${fmtCurrency(order.total)}</strong></div>
+    <div><span>Recebimento</span><strong>${type==="delivery"?"Entrega":"Retirada"}</strong></div>
+    <div><span>Agendamento</span><strong>${new Date(order.schedule.date+"T12:00:00").toLocaleDateString("pt-BR")} · ${order.schedule.time}</strong></div>
+    <div><span>CO₂ simulado</span><strong>${order.carbon.toFixed(1)} kg</strong></div>`;
+  cart=[];saveCart();updateCartBadge();renderCart();closeModal("paymentModal");openModal("successModal");
+});
+
+/* Corrige comportamento dos formulários já existentes no arquivo */
+document.getElementById("loginForm").removeEventListener("submit",()=>{});
+document.getElementById("loginForm").addEventListener("submit",loginLocal);
+document.getElementById("registerForm").addEventListener("submit",registerLocal);
+
+/* inicialização das novas camadas */
+renderSeason();
+populateCheckout();
+
 /* ================= INICIALIZAÇÃO ================= */
 
 renderSidebarCategories();
 
 render(ALL_PRODUCTS);
+renderSeason();
 
 updateCartBadge();
 
@@ -3483,6 +3752,10 @@ renderCart();
 updateSigninButton();
 
 
+</script>
+
+</body>
+</html>
 </script>
 
 </body>
